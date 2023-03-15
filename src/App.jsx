@@ -47,7 +47,7 @@ function App() {
   useEffect(() => {
     if (filtro) {
       //Filtrar gastos por categoria
-      const gastosFiltrados = gastos.filter( gasto => gasto.cateogria === filtro);
+      const gastosFiltrados = gastos.filter( gasto => gasto.categoria === filtro);
 
       setGastosFiltrados(gastosFiltrados)
     }
@@ -100,6 +100,7 @@ function App() {
     <div className={modal ? 'fijar' : '' }>
       <Header 
         gastos={gastos}
+        setGastos={setGastos}
         presupuesto = {presupuesto}
         setPresupuesto = {setPresupuesto}
         isValidPresupuesto = {isValidPresupuesto}
@@ -118,6 +119,8 @@ function App() {
             gastos={gastos}
             setGastoEditar={setGastoEditar}
             eliminarGasto={eliminarGasto}
+            filtro={filtro}
+            gastosFiltrados={gastosFiltrados}
           />
         </main>
         <div className="nuevo-gasto">
